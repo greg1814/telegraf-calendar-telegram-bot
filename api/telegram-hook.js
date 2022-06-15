@@ -1,6 +1,6 @@
 import { Telegraf } from 'telegraf'
 
-import { handleOnMessage, handleTestCommand } from '../src/bot-setup'
+import { setup } from '../src/bot-setup'
 
 /**
  * @typedef {import('@vercel/node').VercelRequest} VercelRequest
@@ -26,14 +26,12 @@ const BASE_PATH =
   'https://telegraf-calendar-telegram-bot-gianlucaparadise.vercel.app'
 const bot = new Telegraf(BOT_TOKEN)
 
-bot.command('test', async (ctx) => {
-  await handleTestCommand(ctx)
-})
+setup(bot)
 
-bot.on('message', async (ctx) => {
-  await handleOnMessage(ctx)
-})
-
+/**
+ * @param {VercelRequest} req
+ * @param {VercelResponse} res
+ */
 export default async (req, res) => {
   try {
     // Retrieve the POST request body that gets sent from Telegram
@@ -48,14 +46,13 @@ export default async (req, res) => {
     }
 
     if (query.secret_hash === SECRET_HASH) {
-      console.log('webhook called with body', body)
       await bot.handleUpdate(body)
     }
   } catch (error) {
     // If there was an error sending our message then we
     // can log it into the Vercel console
-    console.error('Error sending message')
-    console.log(error.toString())
+    console.error('Error sending message', error)
+    console.log('webhook called with body', req?.body)
   }
 
   // Acknowledge the message with Telegram

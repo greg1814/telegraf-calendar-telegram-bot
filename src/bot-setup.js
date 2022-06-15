@@ -1,48 +1,61 @@
+import Calendar from 'telegraf-calendar-telegram'
+
 /**
  * @typedef {import('telegraf/typings/context').TelegrafContext} TelegrafContext
+ * @typedef {import('telegraf/typings/telegraf').Telegraf<TelegrafContext>} Telegraf
  */
 
 /**
- *
- * @param {TelegrafContext} ctx Telegraf Context
+ * Setup how the bot handles user interactions
+ * @param {Telegraf} bot Bot to setup
  */
-export async function handleTestCommand(ctx) {
-  const COMMAND = '/test'
-  const { message } = ctx
-
-  const reply = 'Hello there from another file! Awaiting your service'
-
-  const didReply = await ctx.reply(reply, {
-    reply_to_message_id: message?.message_id
+export const setup = (bot) => {
+  // instantiate the calendar
+  const calendar = new Calendar(bot, {
+    startWeekDay: 1,
+    weekDayNames: ['L', 'M', 'M', 'G', 'V', 'S', 'D'],
+    monthNames: [
+      'Gen',
+      'Feb',
+      'Mar',
+      'Apr',
+      'Mag',
+      'Giu',
+      'Lug',
+      'Ago',
+      'Set',
+      'Ott',
+      'Nov',
+      'Dic'
+    ]
   })
 
-  if (didReply) {
-    console.log(`Reply to ${COMMAND} command sent successfully.`)
-  } else {
-    console.error(
-      `Something went wrong with the ${COMMAND} command. Reply not sent.`
+  // listen for the selected date event
+  calendar.setDateListener((context, date) => context.reply(date))
+  // retrieve the calendar HTML
+  bot.command('calendar', async (ctx) => {
+    const today = new Date()
+    const minDate = new Date()
+    minDate.setMonth(today.getMonth() - 2)
+    const maxDate = new Date()
+    maxDate.setMonth(today.getMonth() + 2)
+    maxDate.setDate(today.getDate())
+
+    const didReply = await ctx.reply(
+      'Here you are',
+      calendar.setMinDate(minDate).setMaxDate(maxDate).getCalendar()
     )
-  }
-}
 
-/**
- *
- * @param {TelegrafContext} ctx Telegraf Context
- */
-export async function handleOnMessage(ctx) {
-  const { message } = ctx
+    if (didReply) {
+      console.log('Reply to /calendar command sent successfully.')
+    } else {
+      console.error(
+        'Something went wrong with the /calendar command. Reply not sent.'
+      )
+    }
+  })
 
-  const isGroup =
-    message?.chat.type === 'group' || message?.chat.type === 'supergroup'
-
-  if (isGroup) {
-    await ctx.reply('This bot is only available in private chats.')
-    return
-  }
-
-  const reply = 'a message was sent'
-
-  await ctx.reply(reply, {
-    reply_to_message_id: message.message_id
+  bot.catch((err) => {
+    console.error('Error in bot:', err)
   })
 }
