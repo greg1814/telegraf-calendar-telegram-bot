@@ -8,10 +8,22 @@ import { Telegraf } from 'telegraf'
  */
 
 export const BOT_TOKEN = process.env.BOT_TOKEN
+if (!BOT_TOKEN) {
+  throw new Error(
+    'bot token required - please set BOT_TOKEN environment variable'
+  )
+}
+
 const SECRET_HASH = process.env.SECRET_HASH
+if (!SECRET_HASH) {
+  throw new Error(
+    'secret hash required - please set SECRET_HASH environment variable'
+  )
+}
 
 // Note: change to false when running locally
-const BASE_PATH = 'https://telegraf-calendar-telegram-bot.vercel.app/'
+const BASE_PATH =
+  'https://telegraf-calendar-telegram-bot-gianlucaparadise.vercel.app'
 const bot = new Telegraf(BOT_TOKEN)
 
 /**
