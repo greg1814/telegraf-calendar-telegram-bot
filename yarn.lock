@@ -2583,7 +2583,14 @@ tar@^6.1.11:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
-telegraf@^3.34.0:
+telegraf-calendar-telegram@^1.5.9:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/telegraf-calendar-telegram/-/telegraf-calendar-telegram-1.5.9.tgz#b29551cbbd172ac15ee5caea80fe7b1611c7019f"
+  integrity sha512-XQfGH7+nzJ5EYtmeh1VmMxlLMivGcBkWby4wRa54Ck4d2DXVujao65g8AEsqreHVRXGkxpMoZD5hzjZ26zqxTA==
+  dependencies:
+    telegraf "^3.25.0"
+
+telegraf@^3.25.0, telegraf@^3.34.0:
   version "3.39.0"
   resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.39.0.tgz#32a7ed464c80802fe3177619d2a9c53413487850"
   integrity sha512-6u5UyW2KpMS/hwC4DKLGlicK/rVSYCahPFgF14ioP6BzwcDwQlciHCB/oWguvxLJaYGrvY6crzLHfjupFTBPXw==

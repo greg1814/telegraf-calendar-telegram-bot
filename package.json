@@ -10,7 +10,8 @@
   "scripts": {
     "start": "vercel dev",
     "lint": "eslint .",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "deploy": "vercel"
   },
   "engines": {
     "node": ">=8.5.0"
@@ -18,7 +19,8 @@
   "author": "gianlucaparadise <gianlucaparadise@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "telegraf": "^3.34.0"
+    "telegraf": "^3.34.0",
+    "telegraf-calendar-telegram": "^1.5.9"
   },
   "devDependencies": {
     "@vercel/node": "^2.1.0",
