@@ -1,8 +1,8 @@
-// import { VercelRequest, VercelResponse } from '@vercel/node'
 import { Telegraf } from 'telegraf'
 
+import { handleOnMessage, handleTestCommand } from '../src/bot-setup'
+
 /**
- * @typedef {import('telegraf/typings/context').TelegrafContext} TelegrafContext
  * @typedef {import('@vercel/node').VercelRequest} VercelRequest
  * @typedef {import('@vercel/node').VercelResponse} VercelResponse
  */
@@ -26,52 +26,6 @@ const BASE_PATH =
   'https://telegraf-calendar-telegram-bot-gianlucaparadise.vercel.app'
 const bot = new Telegraf(BOT_TOKEN)
 
-/**
- *
- * @param {TelegrafContext} ctx Telegraf Context
- */
-export async function handleTestCommand(ctx) {
-  const COMMAND = '/test'
-  const { message } = ctx
-
-  const reply = 'Hello there! Awaiting your service'
-
-  const didReply = await ctx.reply(reply, {
-    reply_to_message_id: message?.message_id
-  })
-
-  if (didReply) {
-    console.log(`Reply to ${COMMAND} command sent successfully.`)
-  } else {
-    console.error(
-      `Something went wrong with the ${COMMAND} command. Reply not sent.`
-    )
-  }
-}
-
-/**
- *
- * @param {TelegrafContext} ctx Telegraf Context
- */
-export async function handleOnMessage(ctx) {
-  const { message } = ctx
-
-  const isGroup =
-    message?.chat.type === 'group' || message?.chat.type === 'supergroup'
-
-  if (isGroup) {
-    await ctx.reply('This bot is only available in private chats.')
-    return
-  }
-
-  //   const telegramUsername = message?.from?.username
-  const reply = 'a message was sent'
-
-  await ctx.reply(reply, {
-    reply_to_message_id: message.message_id
-  })
-}
-
 bot.command('test', async (ctx) => {
   await handleTestCommand(ctx)
 })
@@ -94,6 +48,7 @@ export default async (req, res) => {
     }
 
     if (query.secret_hash === SECRET_HASH) {
+      console.log('webhook called with body', body)
       await bot.handleUpdate(body)
     }
   } catch (error) {
