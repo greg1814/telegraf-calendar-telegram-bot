@@ -19,7 +19,7 @@
   "author": "gianlucaparadise <gianlucaparadise@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "telegraf": "^3.34.0",
+    "telegraf": "^4.8.5",
     "telegraf-calendar-telegram": "^1.5.9"
   },
   "devDependencies": {
