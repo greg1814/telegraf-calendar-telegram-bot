@@ -1883,7 +1883,7 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-node-fetch@^2.2.0, node-fetch@^2.6.1, node-fetch@^2.6.7:
+node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
@@ -2352,7 +2352,7 @@ safe-compare@^1.1.4:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sandwich-stream@^2.0.1, sandwich-stream@^2.0.2:
+sandwich-stream@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/sandwich-stream/-/sandwich-stream-2.0.2.tgz#6d1feb6cf7e9fe9fadb41513459a72c2e84000fa"
   integrity sha512-jLYV0DORrzY3xaz/S9ydJL6Iz7essZeAfnAavsJ+zsJGZ1MOnsS52yRjU3uF3pJa/lla7+wisp//fxOwOH8SKQ==
@@ -2613,24 +2613,12 @@ tar@^6.1.11:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
-telegraf-calendar-telegram@^1.5.9:
-  version "1.5.9"
-  resolved "https://registry.yarnpkg.com/telegraf-calendar-telegram/-/telegraf-calendar-telegram-1.5.9.tgz#b29551cbbd172ac15ee5caea80fe7b1611c7019f"
-  integrity sha512-XQfGH7+nzJ5EYtmeh1VmMxlLMivGcBkWby4wRa54Ck4d2DXVujao65g8AEsqreHVRXGkxpMoZD5hzjZ26zqxTA==
+telegraf-calendar-telegram@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/telegraf-calendar-telegram/-/telegraf-calendar-telegram-2.0.1.tgz#0319a1b5b22ca4e869bd2cff5543acf673c3d034"
+  integrity sha512-13mI3qCIyVx/hnV6I9wKyQB4efg4WJ1KLtgHly7xDN96EtdcCqZQfKEQR3f+1tLVPNlBWP1sFR3Vy46l9mKWwA==
   dependencies:
-    telegraf "^3.25.0"
-
-telegraf@^3.25.0:
-  version "3.39.0"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.39.0.tgz#32a7ed464c80802fe3177619d2a9c53413487850"
-  integrity sha512-6u5UyW2KpMS/hwC4DKLGlicK/rVSYCahPFgF14ioP6BzwcDwQlciHCB/oWguvxLJaYGrvY6crzLHfjupFTBPXw==
-  dependencies:
-    debug "^4.0.1"
-    minimist "^1.2.0"
-    module-alias "^2.2.2"
-    node-fetch "^2.2.0"
-    sandwich-stream "^2.0.1"
-    typegram "^3.1.5"
+    telegraf "^4.8.5"
 
 telegraf@^4.8.5:
   version "4.8.5"
@@ -2735,11 +2723,6 @@ typedarray-to-buffer@^3.1.5:
   integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
   dependencies:
     is-typedarray "^1.0.0"
-
-typegram@^3.1.5:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/typegram/-/typegram-3.9.2.tgz#8e32a621a9f39bc48f093ec011105a66aa743eaf"
-  integrity sha512-lbMhaP0jHsEbz8EJf2s4/hkKLtt2/9THTNatXa2mJCKHZBeJzGO1jrwueQBnXsSgA5pPHLwcPslTnsKXGo/GIQ==
 
 typegram@^3.9.0:
   version "3.10.0"

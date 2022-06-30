@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "telegraf": "^4.8.5",
-    "telegraf-calendar-telegram": "^1.5.9"
+    "telegraf-calendar-telegram": "^2.0.1"
   },
   "devDependencies": {
     "@vercel/node": "^2.1.0",
