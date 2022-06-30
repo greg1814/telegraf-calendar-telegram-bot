@@ -1,9 +1,6 @@
 const Composer = require('telegraf/composer')
-const session = require('telegraf/session')
 
 const bot = new Composer()
-
-bot.use(session())
 
 bot.start(({ reply }) => reply('Welcome message'))
 bot.help(({ reply }) => reply('Help message'))
