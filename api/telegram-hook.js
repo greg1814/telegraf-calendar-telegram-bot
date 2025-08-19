@@ -46,17 +46,10 @@ export default async (req, res) => {
       console.log(`Set webhook to ${webhookUrl}: ${isSet}`)
     }
 
-    const update = req.body; // Telegram envoie du JSON
-    console.log("Telegram update:", update);
-
-    // Exemple : si le message est "/calendar"
-    if (update.message?.text === "/calendar") {
-      // TODO: ta logique (répondre, etc.)
-      return res.status(200).json({ ok: true, action: "calendar" });
+    if (query.secret_hash === SECRET_HASH) { 
+      await bot.handleUpdate(body) 
     }
-
-    // Sinon juste ack
-    return res.status(200).json({ ok: true });
+    
   } catch (error) {
     // If there was an error sending our message then we
     // can log it into the Vercel console
