@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "description": "Example of a bot that is using telegraf-calendar-telegram",
   "repository": {
-    "url": "gianlucaparadise/telegraf-calendar-telegram-bot",
+    "url": "greg1814/telegraf-calendar-telegram-bot",
     "type": "git"
   },
-  "main": "index.js",
+  "main": "api/telegram-hook.js",
   "scripts": {
     "start": "vercel dev",
     "lint": "eslint .",
