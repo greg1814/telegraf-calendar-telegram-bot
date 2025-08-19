@@ -35,6 +35,7 @@ setup(bot)
 export default async (req, res) => {
   try {
     // Retrieve the POST request body that gets sent from Telegram
+    res.status(200).send('OK')
     const { body, query } = req
 
     if (query.setWebhook === 'true') {
