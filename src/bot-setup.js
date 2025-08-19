@@ -13,21 +13,7 @@ export const setup = (bot) => {
   // instantiate the calendar
   const calendar = new Calendar(bot, {
     startWeekDay: 1,
-    weekDayNames: ['L', 'M', 'M', 'G', 'V', 'S', 'D'],
-    monthNames: [
-      'Gen',
-      'Feb',
-      'Mar',
-      'Apr',
-      'Mag',
-      'Giu',
-      'Lug',
-      'Ago',
-      'Set',
-      'Ott',
-      'Nov',
-      'Dic'
-    ]
+    weekDayNames: ['L', 'M', 'M', 'J', 'V', 'S', 'D']
   })
 
   // listen for the selected date event
