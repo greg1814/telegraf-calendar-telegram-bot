@@ -11,7 +11,7 @@ const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 )
-
+onsole.log("Bot setup chargé avec noms FR")
 /**
  * Setup how the bot handles user interactions
  * @param {Telegraf} bot Bot to setup
