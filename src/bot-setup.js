@@ -1,5 +1,5 @@
 import Calendar from 'telegraf-calendar-telegram'
-
+console.log("VERSION FR DEPLOYED")
 export const setup = (bot) => {
   const calendar = new Calendar(bot, {
     startWeekDay: 1,
