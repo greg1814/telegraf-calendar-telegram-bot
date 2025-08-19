@@ -46,7 +46,6 @@ export default async (req, res) => {
     }
 
     if (query.secret_hash === SECRET_HASH) {
-      return res.status(200).send(body)
       await bot.handleUpdate(body)
     }
   } catch (error) {
